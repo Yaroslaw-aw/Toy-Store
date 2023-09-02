@@ -2,25 +2,28 @@
 
 namespace Toy_Store.Vending_Machine_with_toys
 {
-    internal class ToyMachine2
+    internal class ToyMachine
     {
-        Dictionary<int, Toy> toys;
-        int size;
+        protected Dictionary<int, Toy> toys;
+        //protected List<Toy> prizes;
+        protected int size;
         public int Size { get { return toys.Count; } }
 
-        int[] prizeField;
-        int totalPerctngages;
+        protected int[] prizeField;
+        protected int totalPerctngages;
 
-        public ToyMachine2()
+        public ToyMachine()
         {
             toys = new Dictionary<int, Toy>();
+            //prizes = new List<Toy>();
             this.size = 0;
         }
 
-        public ToyMachine2(Dictionary<int, Toy> toys)
+        public ToyMachine(Dictionary<int, Toy> toys)
         {
             this.toys = toys;
             this.size = toys.Count;
+            //prizes = new List<Toy>();
             totalPerctngages = SetPerctntages();
             prizeField = PrizeField(totalPerctngages);
         }
@@ -29,7 +32,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// Добавляет игрушку в машину
         /// </summary>
         /// <param name="toy"></param>
-        public void Add(Toy toy)
+        public void AddToy(Toy toy)
         {
             toys.Add(toy.ToyId, toy);
             totalPerctngages = SetPerctntages();
@@ -40,7 +43,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// Определяет % выпадения каждой игрушки, исходя из её "веса" (читай, как значимость, любое положительное int число)
         /// </summary>
         /// <returns></returns>
-        int SetPerctntages()
+        protected int SetPerctntages()
         {
             double totalWeight = 0;
 
@@ -63,7 +66,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// </summary>
         /// <param name="totalPercentage"></param>
         /// <returns></returns>
-        int[] PrizeField(int totalPercentage)
+        protected int[] PrizeField(int totalPercentage)
         {
             int[] prizeField = new int[totalPercentage];
             int count = 0;
@@ -81,18 +84,18 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// Получает id выигранной игрушки
         /// </summary>
         /// <returns></returns>
-        int prizeId()
+        protected int prizeId()
         {
             if (prizeField.Length > 0)
             {
-                int random = new Random().Next(1, prizeField.Length);
+                int random = new Random().Next(prizeField.Length);
                 return this.prizeField[random];
             }
             return 0;            
         }
 
         /// <summary>
-        /// Достаёт выигранную игрушку
+        /// Выбирает случайную игрушку - главный метод :)
         /// </summary>
         /// <returns></returns>
         public Toy GetToy()
@@ -105,7 +108,7 @@ namespace Toy_Store.Vending_Machine_with_toys
                 {
                     if (toy.Value.Quantity > 0)
                     {
-                        Console.WriteLine($"Поздравляю, вы выиграли: {toy.Value.GetType().Name} {toy.Value.Name}");
+                        Console.WriteLine($"Поздравляем! Вы выиграли: {toy.Value.GetType().Name} {toy.Value.Name}");
                         toy.Value.Quantity--;
                         totalPerctngages = SetPerctntages();
                         prizeField = PrizeField(totalPerctngages);
@@ -125,16 +128,15 @@ namespace Toy_Store.Vending_Machine_with_toys
             return null;
         }
 
-        public void Show()
+        public void ShowToys()
         {
-            for (int i = 0; i < toys.Count; i++)
+            if (toys != null)
             {
-                Console.WriteLine($"Процентаж игрушки {toys[i + 1].ToyId} {toys[i + 1].Percentage}%, Вес игрушки {toys[i + 1].Frequency}");
+                foreach (var toy in toys)
+                {
+                    Console.WriteLine(toy.Value.ToyInfo());
+                }
             }
-            Console.WriteLine("Игровое поле:");
-            Console.Write("[");
-            Console.Write(String.Join($" ", prizeField));
-            Console.WriteLine("]");
         }
     }
 }

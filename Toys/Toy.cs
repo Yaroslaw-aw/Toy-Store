@@ -6,18 +6,18 @@
         protected static Random random;
 
         protected int frequency;
-        public int Frequency { get { return frequency; } set { if (Math.Abs(value) > 0) frequency = Math.Abs(value); } }
+        public int Frequency { get { return frequency; } set { frequency = Math.Abs(value) > 0 ? Math.Abs(value) : 20; } }
 
         protected int percentage;
-        public int Percentage { get { return percentage; } set { if (Math.Abs(value) > 0) percentage = Math.Abs(value); } }
+        public int Percentage { get { return percentage; } set { percentage = Math.Abs(value) > 0 ? Math.Abs(value) : 20; } }
 
         protected string name;
         protected int quantity;        
         protected readonly int toyId;
         public int ToyId { get { return toyId; } }
         int Id { get { return id; } }
-        public string Name { get { return name; } set { name = value; } }
-        public int Quantity { get { return quantity; } set {  quantity = value; } }
+        public string Name { get { return name; } set { name = value.Length < 2 ? string.Format($"{GetType().Name} #{++id}") : value; } }
+        public int Quantity { get { return quantity; } set { quantity = value; } }
         
 
         static Toy()
@@ -39,6 +39,11 @@
             Name = name;
             Quantity = quantity;
             toyId = ++id;
+        }
+
+        public Toy(string name, int quantity, int frequency) : this(name, quantity)
+        {
+            this.Frequency = frequency;
         }
 
         public string ToyInfo()
