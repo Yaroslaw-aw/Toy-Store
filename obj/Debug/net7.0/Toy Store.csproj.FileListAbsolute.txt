@@ -1,0 +1,14 @@
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\bin\Debug\net7.0\Toy Store.exe
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\bin\Debug\net7.0\Toy Store.deps.json
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\bin\Debug\net7.0\Toy Store.runtimeconfig.json
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\bin\Debug\net7.0\Toy Store.dll
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\bin\Debug\net7.0\Toy Store.pdb
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\obj\Debug\net7.0\Toy Store.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\obj\Debug\net7.0\Toy Store.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\obj\Debug\net7.0\Toy Store.AssemblyInfo.cs
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\obj\Debug\net7.0\Toy Store.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\obj\Debug\net7.0\Toy Store.dll
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\obj\Debug\net7.0\refint\Toy Store.dll
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\obj\Debug\net7.0\Toy Store.pdb
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\obj\Debug\net7.0\Toy Store.genruntimeconfig.cache
+C:\Users\User\Desktop\Lessons Programming\Домашка семинары\Промежуточная аттестация\Магазин игрушек\Toy Store\obj\Debug\net7.0\ref\Toy Store.dll
