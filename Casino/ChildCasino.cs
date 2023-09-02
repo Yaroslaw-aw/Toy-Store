@@ -149,9 +149,9 @@ namespace Toy_Store.Casino
                         Console.WriteLine("Приз записан в файл. Нажмите клавишу для продолжения");
                     }
                 }
-                catch (Exception ex) 
+                catch (Exception e) 
                 {
-                    Console.WriteLine("Не удалось создать файл");
+                    Console.WriteLine("Не удалось создать файл\n" + e.Message);
                 }              
             
             prizes.Remove(prizes[0]);
