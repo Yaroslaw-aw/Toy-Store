@@ -1,4 +1,6 @@
-﻿using Toy_Store.Toys;
+﻿using System.IO;
+using System.Text;
+using Toy_Store.Toys;
 using Toy_Store.Vending_Machine_with_toys;
 
 namespace Toy_Store.Casino
@@ -130,25 +132,54 @@ namespace Toy_Store.Casino
         /// <summary>
         /// Ребёнок забирает игрушку)
         /// </summary>
-        public void GetPrize()
+        public async void GetPrize()
         {
+            string path = @".\Prizes.txt";
+
             if (prizes.Count > 0)
             {
                 Console.WriteLine($"Вы забрали игрушку {prizes[0].Name}! Она теперь ваша навсегда ;)");
-                prizes.Remove(prizes[0]);
+                try
+                {                    
+                    string text = $"{prizes[0].GetType().Name} {prizes[0].Name}\n";
+                    using (FileStream fstream = new FileStream(path, FileMode.Append))
+                    {
+                        byte[] buffer = Encoding.UTF8.GetBytes(text);
+                        await fstream.WriteAsync(buffer, 0, buffer.Length);
+                        Console.WriteLine("Приз записан в файл. Нажмите клавишу для продолжения");
+                    }
+                }
+                catch (Exception ex) 
+                {
+                    Console.WriteLine("Не удалось создать файл");
+                }              
+            
+            prizes.Remove(prizes[0]);
             }
         }
         /// <summary>
         /// Ребёнок забирает все игрушки, которые выиграл
         /// </summary>
-        public void GetAllPrizes()
+        public async void GetAllPrizes()
         {
+            string path = @".\Prizes.txt";
+            string text = string.Empty;
+
             if (prizes.Count > 0)
             {
                 Console.WriteLine("Поздравляем с выигрышем!");
+
                 foreach (var prize in prizes)
                 {
+                    text += ($"{prize.GetType().Name} {prize.Name}\n"); // Не знаю, как из СтрингБилдера потом в буфер вставить текст, нет времени разбираться
                     Console.WriteLine($"Вы забрали игрушку {prize.Name}! Она теперь ваша навсегда ;)");
+                }
+
+                using (FileStream fstream = new FileStream(path, FileMode.Append))
+                {
+                    byte[] buffer = Encoding.UTF8.GetBytes(text);
+                    await fstream.WriteAsync(buffer, 0, buffer.Length);
+                    Console.WriteLine("Призы записан в файл. Нажмите клавишу для продолжения");
                 }
                 prizes.Clear();
             }
@@ -169,7 +200,7 @@ namespace Toy_Store.Casino
             }
         }
 
-        
+
         /// <summary>
         /// Показывает игрушки, которые есть в автомате
         /// </summary>
