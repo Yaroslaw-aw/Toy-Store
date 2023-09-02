@@ -8,7 +8,6 @@ namespace Toy_Store
     {
         static void Main(string[] args)
         {
-
             Toy toy1 = new Toy("Плюшевый мишка", 3, 20);
             Toy toy2 = new Toy("Скутер", 2, 40);
             Toy toy3 = new Toy("Робот R2D2", 2, 72);

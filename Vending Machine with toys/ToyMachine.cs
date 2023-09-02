@@ -73,6 +73,8 @@ namespace Toy_Store.Vending_Machine_with_toys
                     if (toy.Key == id)
                         toy.Value.Frequency = weight;
                 }
+                totalPerctngages = SetPerctntages();
+                prizeField = PrizeField(totalPerctngages);
             }
             else
             {
