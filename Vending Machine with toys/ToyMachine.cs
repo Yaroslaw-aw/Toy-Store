@@ -59,6 +59,11 @@ namespace Toy_Store.Vending_Machine_with_toys
             return totalPercentages;
         }
 
+        /// <summary>
+        /// Меняет вес игрушки
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="weight"></param>
         public void SetWeight(int id, int weight)
         {
             foreach (var toy in toys)
