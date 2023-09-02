@@ -4,18 +4,16 @@ namespace Toy_Store.Vending_Machine_with_toys
 {
     internal class ToyMachine
     {
-        protected Dictionary<int, Toy> toys;
-        //protected List<Toy> prizes;
-        protected int size;
+        Dictionary<int, Toy> toys;
+        int size;
         public int Size { get { return toys.Count; } }
 
-        protected int[] prizeField;
-        protected int totalPerctngages;
+        int[] prizeField;
+        int totalPerctngages;
 
         public ToyMachine()
         {
             toys = new Dictionary<int, Toy>();
-            //prizes = new List<Toy>();
             this.size = 0;
         }
 
@@ -23,7 +21,6 @@ namespace Toy_Store.Vending_Machine_with_toys
         {
             this.toys = toys;
             this.size = toys.Count;
-            //prizes = new List<Toy>();
             totalPerctngages = SetPerctntages();
             prizeField = PrizeField(totalPerctngages);
         }
@@ -43,7 +40,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// Определяет % выпадения каждой игрушки, исходя из её "веса" (читай, как значимость, любое положительное int число)
         /// </summary>
         /// <returns></returns>
-        protected int SetPerctntages()
+        int SetPerctntages()
         {
             double totalWeight = 0;
 
@@ -66,7 +63,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// </summary>
         /// <param name="totalPercentage"></param>
         /// <returns></returns>
-        protected int[] PrizeField(int totalPercentage)
+        int[] PrizeField(int totalPercentage)
         {
             int[] prizeField = new int[totalPercentage];
             int count = 0;
@@ -84,7 +81,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// Получает id выигранной игрушки
         /// </summary>
         /// <returns></returns>
-        protected int prizeId()
+        int prizeId()
         {
             if (prizeField.Length > 0)
             {
