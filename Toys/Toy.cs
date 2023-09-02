@@ -1,19 +1,19 @@
 ﻿namespace Toy_Store.Toys
 {
-    internal abstract class Toy
+    internal class Toy
     {
-        protected static int id;
-        protected static Random random;
+        static int id;
+        static Random random;
 
-        protected int frequency;
+        int frequency;
         public int Frequency { get { return frequency; } set { frequency = Math.Abs(value) > 0 ? Math.Abs(value) : 20; } }
 
-        protected int percentage;
+        int percentage;
         public int Percentage { get { return percentage; } set { percentage = Math.Abs(value) > 0 ? Math.Abs(value) : 20; } }
 
-        protected string name;
-        protected int quantity;        
-        protected readonly int toyId;
+        string name;
+        int quantity;        
+        readonly int toyId;
         public int ToyId { get { return toyId; } }
         int Id { get { return id; } }
         public string Name { get { return name; } set { name = value.Length < 2 ? string.Format($"{GetType().Name} #{++id}") : value; } }

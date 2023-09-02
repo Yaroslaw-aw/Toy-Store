@@ -9,11 +9,11 @@ namespace Toy_Store
         static void Main(string[] args)
         {
 
-            Toy toy1 = new Gummi_Bear("Плюшевый", 3);
-            Toy toy2 = new Scooter("Скутер", 2);
-            Toy toy3 = new Robot("R2D2", 2);
-            Toy toy4 = new Robot("C3PO", 1);
-            Toy toy5 = new Gummi_Bear("Сладкоежка", 1);
+            Toy toy1 = new Toy("Плюшевый мишка", 3, 20);
+            Toy toy2 = new Toy("Скутер", 2, 40);
+            Toy toy3 = new Toy("Робот R2D2", 2, 72);
+            Toy toy4 = new Toy("Робот C3PO", 1, 81);
+            Toy toy5 = new Toy("Конструктор", 1, 32);
 
             ToyMachine machine2 = new ToyMachine();
             machine2.AddToy(toy1);

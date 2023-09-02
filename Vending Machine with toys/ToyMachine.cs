@@ -59,6 +59,16 @@ namespace Toy_Store.Vending_Machine_with_toys
             return totalPercentages;
         }
 
+        public void SetWeight(int id, int weight)
+        {
+            foreach (var toy in toys)
+            {
+                if (toy.Key == id)
+                    toy.Value.Frequency = weight;
+            }
+        }
+
+
         /// <summary>
         /// Генерирует призовое поле
         /// </summary>

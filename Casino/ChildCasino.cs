@@ -32,6 +32,7 @@ namespace Toy_Store.Casino
                               $" 3. Добавить игрушку в автомат\n" +
                               $" 4. Забрать одну выигранную игрушку :)\n" +
                               $" 5. Забрать все выигранные игрушки! ))\n" +
+                              $" 6. Изменить вес игрушки\n" +
                               $" 0. Попрощаться с игровым автоматом\n");
             ShowPrizes();
 
@@ -68,41 +69,11 @@ namespace Toy_Store.Casino
                     }
                 case 3:
                     {
-                        Console.WriteLine("Выберете, какую игрушку вы хотите добавить:");
-                        Console.WriteLine($" 1. Мишка Gummi_Bear\n" +
-                                          $" 2. Робот Robot\n" +
-                                          $" 3. Самокат Scooter\n");
-                        int choice = InputIntValue("");
-                        switch (choice)
-                        {
-                            case 1:
-                                {
-                                    toysMachine.AddToy(MakeNewGummi_Bear());
-                                    Console.WriteLine("Новый мишка добавлен. Нажмите любую клавишу для продолжения");
-                                    Console.ReadKey();
-                                    break;
-                                }
-                            case 2:
-                                {
-                                    toysMachine.AddToy(MakeNewRobot());
-                                    Console.WriteLine("Новый робот добавлен. Нажмите любую клавишу для продолжения");
-                                    Console.ReadKey();
-                                    break;
-                                }
-                            case 3:
-                                {
-                                    toysMachine.AddToy(MakeNewScooter());
-                                    Console.WriteLine("Новый самокат добавлен. Нажмите любую клавишу для продолжения");
-                                    Console.ReadKey();
-                                    break;
-                                }
-                            default:
-                                {
-                                    Console.WriteLine("Неверный ввод");
-                                    break;
-                                }
-                        }
+                        toysMachine.AddToy(MakeNewToy());
+                        Console.WriteLine("Новая игрушка добавлена. Нажмите любую клавишу для продолжения");
+                        Console.ReadKey();
                         break;
+
                     }
                 case 4:
                     {
@@ -116,6 +87,14 @@ namespace Toy_Store.Casino
                         GetAllPrizes();
                         Console.WriteLine("\nНажмите клавишу для продолжения");
                         Console.ReadKey();
+                        break;
+                    }
+                case 6:
+                    {
+                        ShowToys();
+                        int id = InputIntValue("\nВведите id игрушки, вес которой надо поменять");
+                        int weight = InputIntValue("\nВведите значение веса, которое надо установить");
+                        toysMachine.SetWeight(id, weight);
                         break;
                     }
                 default:
@@ -140,7 +119,7 @@ namespace Toy_Store.Casino
             {
                 Console.WriteLine($"Вы забрали игрушку {prizes[0].Name}! Она теперь ваша навсегда ;)");
                 try
-                {                    
+                {
                     string text = $"{prizes[0].GetType().Name} {prizes[0].Name}\n";
                     using (FileStream fstream = new FileStream(path, FileMode.Append))
                     {
@@ -149,12 +128,12 @@ namespace Toy_Store.Casino
                         Console.WriteLine("\nПриз записан в файл. Нажмите клавишу для продолжения");
                     }
                 }
-                catch (Exception e) 
+                catch (Exception e)
                 {
                     Console.WriteLine("Не удалось создать файл\n" + e.Message);
-                }              
-            
-            prizes.Remove(prizes[0]);
+                }
+
+                prizes.Remove(prizes[0]);
             }
         }
         /// <summary>
@@ -210,40 +189,12 @@ namespace Toy_Store.Casino
         }
 
         /// <summary>
-        /// Создаёт нового мишку гамми
+        /// Создаёт новую игрушку
         /// </summary>
         /// <returns></returns>
-        Toy MakeNewGummi_Bear()
+        Toy MakeNewToy()
         {
-            Toy toy = new Gummi_Bear();
-            toy.Name = Input("Введите название мишки");
-            toy.Quantity = InputIntValue("Введите количество мишек");
-            toy.Frequency = InputIntValue("Введите \"вес\" мишек, от него будет зависеть шанс выпадения");
-
-            return toy;
-        }
-
-        /// <summary>
-        /// Создаёт нового робота
-        /// </summary>
-        /// <returns></returns>
-        Toy MakeNewRobot()
-        {
-            Toy toy = new Robot();
-            toy.Name = Input("Введите название мишки");
-            toy.Quantity = InputIntValue("Введите количество мишек");
-            toy.Frequency = InputIntValue("Введите \"вес\" мишек, от него будет зависеть шанс выпадения");
-
-            return toy;
-        }
-
-        /// <summary>
-        /// Создаёт новый скутер
-        /// </summary>
-        /// <returns></returns>
-        Toy MakeNewScooter()
-        {
-            Toy toy = new Scooter();
+            Toy toy = new Toy();
             toy.Name = Input("Введите название мишки");
             toy.Quantity = InputIntValue("Введите количество мишек");
             toy.Frequency = InputIntValue("Введите \"вес\" мишек, от него будет зависеть шанс выпадения");
