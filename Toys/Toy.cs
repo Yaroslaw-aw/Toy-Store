@@ -17,7 +17,7 @@
         public int ToyId { get { return toyId; } }
         int Id { get { return id; } }
         public string Name { get { return name; } set { name = value; } }
-        public int Quantity { get { return quantity; } set { quantity = value; } }
+        public int Quantity { get { return quantity; } set {  quantity = value; } }
         
 
         static Toy()
@@ -31,6 +31,8 @@
             Name = string.Format($"{GetType().Name} #{++id}");
             Quantity = random.Next(1, 5);
             toyId = Id;
+            Frequency = 20;
+            Percentage = 20;
         }
         public Toy(string name, int quantity)
         {
@@ -41,7 +43,7 @@
 
         public string ToyInfo()
         {
-            return string.Format($"{GetType().Name} id: {ToyId}, Name: {Name}, Количество: {Quantity}, Процент выигрыша {this.Percentage}%, Частота(вес) {this.Frequency}");
+            return string.Format($"{GetType().Name} id: {ToyId}, Название: {Name}, Количество: {Quantity}, Процент выигрыша {this.Percentage}%, Частота(вес) {this.Frequency}");
         }
     }
 }

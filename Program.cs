@@ -12,6 +12,7 @@ namespace Toy_Store
             Toy toy1 = new Gummi_Bear("Плюшевый", 4);
             Toy toy2 = new Scooter("Скутер", 5);
             Toy toy3 = new Robot("R2D2", 2);
+            Toy toy4 = new Robot("C3PO", 3);
 
             #region
             //List<Toy> list = new List<Toy>();
@@ -47,16 +48,18 @@ namespace Toy_Store
             machine2.Add(toy1);
             machine2.Add(toy2);
             machine2.Add(toy3);
+            machine2.Add(toy4);
 
             Console.WriteLine(toy1.ToyInfo());
             Console.WriteLine(toy2.ToyInfo());
             Console.WriteLine(toy3.ToyInfo());
+            Console.WriteLine(toy4.ToyInfo());
 
             Console.WriteLine(new string('-', 70));
 
             machine2.Show();
 
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 18; i++)
             {
                 machine2.GetToy();
             }
