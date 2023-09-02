@@ -58,7 +58,11 @@ namespace Toy_Store.Vending_Machine_with_toys
             return totalPercentages;
         }
 
-
+        /// <summary>
+        /// Генерирует призовое поле
+        /// </summary>
+        /// <param name="totalPercentage"></param>
+        /// <returns></returns>
         int[] PrizeField(int totalPercentage)
         {
             int[] prizeField = new int[totalPercentage];
@@ -73,7 +77,10 @@ namespace Toy_Store.Vending_Machine_with_toys
             return prizeField;
         }
 
-
+        /// <summary>
+        /// Получает id выигранной игрушки
+        /// </summary>
+        /// <returns></returns>
         int prizeId()
         {
             if (prizeField.Length > 0)
@@ -84,7 +91,10 @@ namespace Toy_Store.Vending_Machine_with_toys
             return 0;            
         }
 
-
+        /// <summary>
+        /// Достаёт выигранную игрушку
+        /// </summary>
+        /// <returns></returns>
         public Toy GetToy()
         {
             int prizeID = prizeId();
