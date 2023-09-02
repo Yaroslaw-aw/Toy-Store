@@ -31,10 +31,13 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// <param name="toy"></param>
         public void AddToy(Toy toy)
         {
-            toys.Add(toy.ToyId, toy);
-            size++;
-            totalPerctngages = SetPerctntages();
-            prizeField = PrizeField(totalPerctngages);
+            if (toy.Quantity > 0)
+            {
+                toys.Add(toy.ToyId, toy);
+                size++;
+                totalPerctngages = SetPerctntages();
+                prizeField = PrizeField(totalPerctngages);
+            }
         }
 
         /// <summary>

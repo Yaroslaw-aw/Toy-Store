@@ -195,9 +195,9 @@ namespace Toy_Store.Casino
         Toy MakeNewToy()
         {
             Toy toy = new Toy();
-            toy.Name = Input("Введите название мишки");
-            toy.Quantity = InputIntValue("Введите количество мишек");
-            toy.Frequency = InputIntValue("Введите \"вес\" мишек, от него будет зависеть шанс выпадения");
+            toy.Name = Input("Введите название игрушки");
+            toy.Quantity = InputIntValue("Введите количество игрушек");
+            toy.Frequency = InputIntValue("Введите \"вес\" игрушек, от него будет зависеть шанс выпадения");
 
             return toy;
         }
