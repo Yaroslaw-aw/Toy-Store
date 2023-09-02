@@ -66,10 +66,17 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// <param name="weight"></param>
         public void SetWeight(int id, int weight)
         {
-            foreach (var toy in toys)
+            if (toys.Count > 0)
             {
-                if (toy.Key == id)
-                    toy.Value.Frequency = weight;
+                foreach (var toy in toys)
+                {
+                    if (toy.Key == id)
+                        toy.Value.Frequency = weight;
+                }
+            }
+            else
+            {
+                Console.WriteLine("В автомате нет игрушек ;(");
             }
         }
 
