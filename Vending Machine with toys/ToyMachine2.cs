@@ -25,6 +25,10 @@ namespace Toy_Store.Vending_Machine_with_toys
             prizeField = PrizeField(totalPerctngages);
         }
 
+        /// <summary>
+        /// Добавляет игрушку в машину
+        /// </summary>
+        /// <param name="toy"></param>
         public void Add(Toy toy)
         {
             toys.Add(toy.ToyId, toy);
@@ -32,6 +36,10 @@ namespace Toy_Store.Vending_Machine_with_toys
             prizeField = PrizeField(totalPerctngages);
         }
 
+        /// <summary>
+        /// Определяет % выпадения каждой игрушки, исходя из её "веса" (читай, как значимость, любое положительное int число)
+        /// </summary>
+        /// <returns></returns>
         int SetPerctntages()
         {
             double totalWeight = 0;
@@ -65,13 +73,16 @@ namespace Toy_Store.Vending_Machine_with_toys
             return prizeField;
         }
 
+
         int prizeId()
         {
-            int random = new Random().Next(1, prizeField.Length);
-
-            return this.prizeField[random];
+            if (prizeField.Length > 0)
+            {
+                int random = new Random().Next(1, prizeField.Length);
+                return this.prizeField[random];
+            }
+            return 0;            
         }
-
 
 
         public Toy GetToy()

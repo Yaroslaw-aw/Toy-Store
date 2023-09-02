@@ -3,11 +3,6 @@
     internal class Robot : Toy
     {        
         public Robot() : base() { this.Frequency = 20; }
-        public Robot(string name, int quantity) : base(name, quantity) { this.Frequency = 20; }
-
-        public override string ToyInfo()
-        {
-            return string.Format($"{base.ToyInfo()} Частота(вес): {Frequency}");
-        }
+        public Robot(string name, int quantity) : base(name, quantity) { this.Frequency = 20; }        
     }
 }

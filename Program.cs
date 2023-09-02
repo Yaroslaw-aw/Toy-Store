@@ -9,7 +9,7 @@ namespace Toy_Store
         static void Main(string[] args)
         {
 
-            Toy toy1 = new Gummi_Bear("Мишка", 4);
+            Toy toy1 = new Gummi_Bear("Плюшевый", 4);
             Toy toy2 = new Scooter("Скутер", 5);
             Toy toy3 = new Robot("R2D2", 2);
 
@@ -48,11 +48,15 @@ namespace Toy_Store
             machine2.Add(toy2);
             machine2.Add(toy3);
 
+            Console.WriteLine(toy1.ToyInfo());
+            Console.WriteLine(toy2.ToyInfo());
+            Console.WriteLine(toy3.ToyInfo());
+
             Console.WriteLine(new string('-', 70));
 
             machine2.Show();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 12; i++)
             {
                 machine2.GetToy();
             }

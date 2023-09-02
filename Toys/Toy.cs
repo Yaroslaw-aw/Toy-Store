@@ -5,11 +5,11 @@
         protected static int id;
         protected static Random random;
 
-        int frequency;
-        public int Frequency { get { return frequency; } set { if (value > 0) frequency = value; } }
+        protected int frequency;
+        public int Frequency { get { return frequency; } set { if (Math.Abs(value) > 0) frequency = Math.Abs(value); } }
 
         protected int percentage;
-        public int Percentage { get { return percentage; } set { if (value > 0) percentage = value; } }
+        public int Percentage { get { return percentage; } set { if (Math.Abs(value) > 0) percentage = Math.Abs(value); } }
 
         protected string name;
         protected int quantity;        
@@ -39,9 +39,9 @@
             toyId = ++id;
         }
 
-        public virtual string ToyInfo()
+        public string ToyInfo()
         {
-            return string.Format($"{GetType().Name} id: {ToyId}, Name: {Name}, Количество: {Quantity},");
+            return string.Format($"{GetType().Name} id: {ToyId}, Name: {Name}, Количество: {Quantity}, Процент выигрыша {this.Percentage}%, Частота(вес) {this.Frequency}");
         }
     }
 }
