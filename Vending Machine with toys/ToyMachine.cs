@@ -5,8 +5,8 @@ namespace Toy_Store.Vending_Machine_with_toys
     internal class ToyMachine
     {
         Dictionary<int, Toy> toys;
-        int size;
-        public int Size { get { return toys.Count; } }
+        int size; // Количество элементов в словаре с игрушками
+        public int Size { get { return size; } }
 
         int[] prizeField;
         int totalPerctngages;
@@ -32,6 +32,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         public void AddToy(Toy toy)
         {
             toys.Add(toy.ToyId, toy);
+            size++;
             totalPerctngages = SetPerctntages();
             prizeField = PrizeField(totalPerctngages);
         }
