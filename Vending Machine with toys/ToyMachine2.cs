@@ -67,9 +67,12 @@ namespace Toy_Store.Vending_Machine_with_toys
 
         int prizeId()
         {
-            int random = new Random().Next(1, prizeField.Length);
-
-            return this.prizeField[random];
+            if (prizeField.Length > 0)
+            {
+                int random = new Random().Next(1, prizeField.Length);
+                return this.prizeField[random];
+            }
+            return 0;            
         }
 
 
