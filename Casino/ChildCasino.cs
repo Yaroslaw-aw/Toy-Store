@@ -50,10 +50,19 @@ namespace Toy_Store.Casino
                     }
                 case 2:
                     {
-                        prizes.Add(toysMachine.GetToy());
-                        Console.WriteLine("\nНажмите клавишу для продолжения");
-                        Console.ReadKey();
-                        break;
+                        if (toysMachine.Size > 0)
+                        {
+                            prizes.Add(toysMachine.GetToy());
+                            Console.WriteLine("\nНажмите клавишу для продолжения");
+                            Console.ReadKey();
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Автомат с игрушками пуст ;(");
+                            Console.ReadKey();
+                            break;
+                        }
                     }
                 case 3:
                     {

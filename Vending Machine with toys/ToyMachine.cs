@@ -101,42 +101,46 @@ namespace Toy_Store.Vending_Machine_with_toys
         public Toy GetToy()
         {
             int prizeID = prizeId();
-
-            foreach (KeyValuePair<int, Toy> toy in toys)
+            if (toys.Count > 0)
             {
-                if (toy.Key == prizeID)
+                foreach (KeyValuePair<int, Toy> toy in toys)
                 {
-                    if (toy.Value.Quantity > 0)
+                    if (toy.Key == prizeID)
                     {
-                        Console.WriteLine($"Поздравляем! Вы выиграли: {toy.Value.GetType().Name} {toy.Value.Name}");
-                        toy.Value.Quantity--;
-                        totalPerctngages = SetPerctntages();
-                        prizeField = PrizeField(totalPerctngages);
-                    }
+                        if (toy.Value.Quantity > 0)
+                        {
+                            Console.WriteLine($"Поздравляем! Вы выиграли: {toy.Value.GetType().Name} {toy.Value.Name}");
+                            toy.Value.Quantity--;
+                            totalPerctngages = SetPerctntages();
+                            prizeField = PrizeField(totalPerctngages);
+                        }
 
-                    if (toy.Value.Quantity == 0)
-                    {
-                        toys.Remove(toy.Key);
-                        totalPerctngages = SetPerctntages();
-                        prizeField = PrizeField(totalPerctngages);
-                        this.size--;
+                        if (toy.Value.Quantity == 0)
+                        {
+                            toys.Remove(toy.Key);
+                            totalPerctngages = SetPerctntages();
+                            prizeField = PrizeField(totalPerctngages);
+                            this.size--;
+                            return toy.Value;
+                        }
                         return toy.Value;
                     }
-                    return toy.Value;
-                }                
+                }
+                return null;
             }
             return null;
         }
 
         public void ShowToys()
         {
-            if (toys != null)
+            if (toys.Count > 0)
             {
                 foreach (var toy in toys)
                 {
                     Console.WriteLine(toy.Value.ToyInfo());
                 }
             }
+            else Console.WriteLine("Автомат с игрушками пуст ;(\nПриходите позже"); 
         }
     }
 }
