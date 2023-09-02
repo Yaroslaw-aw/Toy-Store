@@ -6,10 +6,10 @@
         static Random random;
 
         int frequency;
-        public int Frequency { get { return frequency; } set { frequency = Math.Abs(value) > 0 ? Math.Abs(value) : 20; } }
+        public int Frequency { get { return frequency; } set { frequency = Math.Abs(value); } }
 
         int percentage;
-        public int Percentage { get { return percentage; } set { percentage = Math.Abs(value) > 0 ? Math.Abs(value) : 20; } }
+        public int Percentage { get { return percentage; } set { percentage = Math.Abs(value) ; } }
 
         string name;
         int quantity;        

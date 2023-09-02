@@ -31,7 +31,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// <param name="toy"></param>
         public void AddToy(Toy toy)
         {
-            if (toy.Quantity > 0)
+            if (toy.Quantity > 0 && toy.Frequency > 0)
             {
                 toys.Add(toy.ToyId, toy);
                 size++;
