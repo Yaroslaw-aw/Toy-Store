@@ -146,7 +146,7 @@ namespace Toy_Store.Casino
                     {
                         byte[] buffer = Encoding.UTF8.GetBytes(text);
                         await fstream.WriteAsync(buffer, 0, buffer.Length);
-                        Console.WriteLine("Приз записан в файл. Нажмите клавишу для продолжения");
+                        Console.WriteLine("\nПриз записан в файл. Нажмите клавишу для продолжения");
                     }
                 }
                 catch (Exception e) 
@@ -179,7 +179,7 @@ namespace Toy_Store.Casino
                 {
                     byte[] buffer = Encoding.UTF8.GetBytes(text);
                     await fstream.WriteAsync(buffer, 0, buffer.Length);
-                    Console.WriteLine("Призы записан в файл. Нажмите клавишу для продолжения");
+                    Console.WriteLine("\nПризы записан в файл. Нажмите клавишу для продолжения");
                 }
                 prizes.Clear();
             }
