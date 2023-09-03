@@ -141,7 +141,6 @@ namespace Toy_Store.Vending_Machine_with_toys
                         {
                             Console.WriteLine($"Поздравляем! Вы выиграли: {toy.Value.GetType().Name} {toy.Value.Name}");
                             toy.Value.Quantity--;
-                            CalculatePrizeFieldAndPercentsOfWinning();
                         }
 
                         if (toy.Value.Quantity == 0)
