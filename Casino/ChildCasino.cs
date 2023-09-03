@@ -139,7 +139,7 @@ namespace Toy_Store.Casino
             }
         }
         /// <summary>
-        /// Ребёнок забирает все игрушки, которые выиграл
+        /// Ребёнок забирает все игрушки, которые лежат в очереди выигранных
         /// </summary>
         public async void GetAllPrizes()
         {
