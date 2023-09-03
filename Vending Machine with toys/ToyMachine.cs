@@ -37,8 +37,7 @@ namespace Toy_Store.Vending_Machine_with_toys
             {
                 toys.Add(toy.ToyId, toy);
                 size++;
-                totalPercentages = SetPerctntages();
-                prizeField = PrizeField(totalPercentages);
+                CalculatePrizeFieldAndPercentsOfWinning();
             }
         }
 
@@ -64,6 +63,12 @@ namespace Toy_Store.Vending_Machine_with_toys
             return totalPercentages;
         }
 
+        void CalculatePrizeFieldAndPercentsOfWinning()
+        {
+            totalPercentages = SetPerctntages();
+            prizeField = PrizeField(totalPercentages);
+        }
+
         /// <summary>
         /// Меняет вес игрушки
         /// </summary>
@@ -78,8 +83,7 @@ namespace Toy_Store.Vending_Machine_with_toys
                     if (toy.Key == id)
                         toy.Value.Frequency = weight;
                 }
-                totalPercentages = SetPerctntages();
-                prizeField = PrizeField(totalPercentages);
+                CalculatePrizeFieldAndPercentsOfWinning();
             }
             else
             {
@@ -138,15 +142,13 @@ namespace Toy_Store.Vending_Machine_with_toys
                         {
                             Console.WriteLine($"Поздравляем! Вы выиграли: {toy.Value.GetType().Name} {toy.Value.Name}");
                             toy.Value.Quantity--;
-                            totalPercentages = SetPerctntages();
-                            prizeField = PrizeField(totalPercentages);
+                            CalculatePrizeFieldAndPercentsOfWinning();
                         }
 
                         if (toy.Value.Quantity == 0)
                         {
                             toys.Remove(toy.Key);
-                            totalPercentages = SetPerctntages();
-                            prizeField = PrizeField(totalPercentages);
+                            CalculatePrizeFieldAndPercentsOfWinning();
                             this.size--;
                             return toy.Value;
                         }
