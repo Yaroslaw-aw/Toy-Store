@@ -160,7 +160,7 @@ namespace Toy_Store.Casino
                 {
                     byte[] buffer = Encoding.UTF8.GetBytes(text);
                     await fstream.WriteAsync(buffer, 0, buffer.Length);
-                    Console.WriteLine("\nПризы записан в файл. Нажмите клавишу для продолжения");
+                    Console.WriteLine("\nПризы записаны в файл. Нажмите клавишу для продолжения");
                 }
                 prizes.Clear();
             }
