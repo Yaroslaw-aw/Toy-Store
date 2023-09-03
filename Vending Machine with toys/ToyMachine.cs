@@ -9,7 +9,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         public int Size { get { return size; } }
 
         int[] prizeField;
-        int totalPerctngages;
+        int totalPercentages;
 
         public ToyMachine()
         {
@@ -21,8 +21,8 @@ namespace Toy_Store.Vending_Machine_with_toys
         {
             this.toys = toys;
             this.size = toys.Count;
-            totalPerctngages = SetPerctntages();
-            prizeField = PrizeField(totalPerctngages);
+            totalPercentages = SetPerctntages();
+            prizeField = PrizeField(totalPercentages);
         }
 
         /// <summary>
@@ -35,8 +35,8 @@ namespace Toy_Store.Vending_Machine_with_toys
             {
                 toys.Add(toy.ToyId, toy);
                 size++;
-                totalPerctngages = SetPerctntages();
-                prizeField = PrizeField(totalPerctngages);
+                totalPercentages = SetPerctntages();
+                prizeField = PrizeField(totalPercentages);
             }
         }
 
@@ -76,8 +76,8 @@ namespace Toy_Store.Vending_Machine_with_toys
                     if (toy.Key == id)
                         toy.Value.Frequency = weight;
                 }
-                totalPerctngages = SetPerctntages();
-                prizeField = PrizeField(totalPerctngages);
+                totalPercentages = SetPerctntages();
+                prizeField = PrizeField(totalPercentages);
             }
             else
             {
@@ -136,15 +136,15 @@ namespace Toy_Store.Vending_Machine_with_toys
                         {
                             Console.WriteLine($"Поздравляем! Вы выиграли: {toy.Value.GetType().Name} {toy.Value.Name}");
                             toy.Value.Quantity--;
-                            totalPerctngages = SetPerctntages();
-                            prizeField = PrizeField(totalPerctngages);
+                            totalPercentages = SetPerctntages();
+                            prizeField = PrizeField(totalPercentages);
                         }
 
                         if (toy.Value.Quantity == 0)
                         {
                             toys.Remove(toy.Key);
-                            totalPerctngages = SetPerctntages();
-                            prizeField = PrizeField(totalPerctngages);
+                            totalPercentages = SetPerctntages();
+                            prizeField = PrizeField(totalPercentages);
                             this.size--;
                             return toy.Value;
                         }
