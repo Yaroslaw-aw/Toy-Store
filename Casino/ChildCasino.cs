@@ -95,6 +95,8 @@ namespace Toy_Store.Casino
                         int id = InputIntValue("\nВведите id игрушки, вес которой надо поменять");
                         int weight = InputIntValue("\nВведите значение веса, которое надо установить");
                         toysMachine.SetWeight(id, weight);
+                        Console.WriteLine($"У игрушки id {id} установлен вес {weight}. Нажмите любую клавишу для продолжения");
+                        Console.ReadKey();
                         break;
                     }
                 default:
