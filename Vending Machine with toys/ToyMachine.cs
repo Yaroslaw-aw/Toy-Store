@@ -23,8 +23,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         {
             this.toys = toys;
             this.size = toys.Count;
-            totalPercentages = SetPerctntages();
-            prizeField = PrizeField(totalPercentages);
+            CalculatePrizeFieldAndPercentsOfWinning();
         }
 
         /// <summary>
