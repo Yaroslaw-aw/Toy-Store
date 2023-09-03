@@ -5,10 +5,12 @@ namespace Toy_Store.Vending_Machine_with_toys
     internal class ToyMachine
     {
         Dictionary<int, Toy> toys;
+
         int size; // Количество элементов в словаре с игрушками
         public int Size { get { return size; } }
 
         int[] prizeField;
+
         int totalPercentages;
 
         public ToyMachine()

@@ -31,8 +31,7 @@
             Name = string.Format($"{GetType().Name} #{++id}");
             Quantity = random.Next(1, 5);
             toyId = Id;
-            Frequency = 20;
-            Percentage = 20;
+            Frequency = random.Next(20, 60);
         }
         public Toy(string name, int quantity)
         {
