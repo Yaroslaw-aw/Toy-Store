@@ -77,11 +77,8 @@ namespace Toy_Store.Vending_Machine_with_toys
         {
             if (toys.Count > 0)
             {
-                foreach (var toy in toys)
-                {
-                    if (toy.Key == id)
-                        toy.Value.Frequency = weight;
-                }
+                toys[id].Frequency = weight;
+                
                 CalculatePrizeFieldAndPercentsOfWinning();
             }
             else
