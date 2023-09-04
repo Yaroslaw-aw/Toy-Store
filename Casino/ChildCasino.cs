@@ -103,7 +103,8 @@ namespace Toy_Store.Casino
                         }
                         else
                         {
-                            Console.WriteLine("Простите, но автомат с игрушками пуст!");
+                            Console.WriteLine("Простите, но автомат с игрушками пуст! Нажмите любую клавишу для продолжения");
+                            Console.ReadKey();
                             break;
                         }
                     }
