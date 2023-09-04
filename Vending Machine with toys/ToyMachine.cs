@@ -132,7 +132,6 @@ namespace Toy_Store.Vending_Machine_with_toys
         {
             int prizeID = prizeId();
 
-
             if (toys.Count > 0)
             {
                 Toy toy1 = toys[prizeID];
