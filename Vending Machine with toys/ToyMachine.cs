@@ -121,7 +121,7 @@ namespace Toy_Store.Vending_Machine_with_toys
                 int random = new Random().Next(prizeField.Length);
                 return this.prizeField[random];
             }
-            return 0;            
+            return 0;
         }
 
         /// <summary>
@@ -131,29 +131,24 @@ namespace Toy_Store.Vending_Machine_with_toys
         public Toy GetToy()
         {
             int prizeID = prizeId();
+
+
             if (toys.Count > 0)
             {
-                foreach (KeyValuePair<int, Toy> toy in toys)
+                Toy toy1 = toys[prizeID];
+                if (toys[prizeID].Quantity > 0)
                 {
-                    if (toy.Key == prizeID)
-                    {
-                        if (toy.Value.Quantity > 0)
-                        {
-                            Console.WriteLine($"Поздравляем! Вы выиграли: {toy.Value.GetType().Name} {toy.Value.Name}");
-                            toy.Value.Quantity--;
-                        }
-
-                        if (toy.Value.Quantity == 0)
-                        {
-                            toys.Remove(toy.Key);
-                            CalculatePrizeFieldAndPercentsOfWinning();
-                            this.size--;
-                            return toy.Value;
-                        }
-                        return toy.Value;
-                    }
+                    Console.WriteLine($"Поздравляем! Вы выиграли: {toys[prizeID].GetType().Name} {toys[prizeID].Name}");
+                    toys[prizeID].Quantity--;
                 }
-                return null;
+                if (toys[prizeID].Quantity == 0)
+                {
+                    toys.Remove(prizeID);
+                    CalculatePrizeFieldAndPercentsOfWinning();
+                    this.size--;
+                    return toy1;
+                }
+                return toy1;                
             }
             return null;
         }
@@ -167,7 +162,7 @@ namespace Toy_Store.Vending_Machine_with_toys
                     Console.WriteLine(toy.Value.ToyInfo());
                 }
             }
-            else Console.WriteLine("Автомат с игрушками пуст ;(\nПриходите позже"); 
+            else Console.WriteLine("Автомат с игрушками пуст ;(\nПриходите позже");
         }
     }
 }
