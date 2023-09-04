@@ -78,7 +78,7 @@ namespace Toy_Store.Vending_Machine_with_toys
             if (toys.Count > 0)
             {
                 toys[id].Frequency = weight;
-                
+
                 CalculatePrizeFieldAndPercentsOfWinning();
             }
             else

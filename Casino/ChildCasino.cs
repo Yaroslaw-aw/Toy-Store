@@ -122,7 +122,7 @@ namespace Toy_Store.Casino
         /// <summary>
         /// Ребёнок забирает игрушку)
         /// </summary>
-        public async void GetPrize()
+        async void GetPrize()
         {
             string path = @".\Prizes.txt";
 
@@ -150,7 +150,7 @@ namespace Toy_Store.Casino
         /// <summary>
         /// Ребёнок забирает все игрушки, которые лежат в очереди выигранных
         /// </summary>
-        public async void GetAllPrizes()
+        async void GetAllPrizes()
         {
             string path = @".\Prizes.txt";
             string text = string.Empty;
@@ -178,7 +178,7 @@ namespace Toy_Store.Casino
         /// <summary>
         /// Показывает уже выигранные игрушки, но их ещё не забрали
         /// </summary>
-        public void ShowPrizes()
+        void ShowPrizes()
         {
             if (prizes.Count > 0)
             {
@@ -194,7 +194,7 @@ namespace Toy_Store.Casino
         /// <summary>
         /// Показывает игрушки, которые есть в автомате
         /// </summary>
-        public void ShowToys()
+        void ShowToys()
         {
             toysMachine.ShowToys();
         }
