@@ -18,7 +18,7 @@ namespace Toy_Store.Toys
         readonly int toyId;
         public int ToyId { get { return toyId; } }
         int Id { get { return id; } }
-        public string Name { get { return name; } set { name = value.Length < 2 ? string.Format($"{GetType().Name} #{++id}") : value; } }
+        public string Name { get { return name; } set { name = value.Length < 2 ? string.Format($"{GetType().Name} #{ToyId}") : value; } }
         public int Quantity { get { return quantity; } set { quantity = value; } }
         
 
