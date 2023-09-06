@@ -111,7 +111,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// Получает id выигранной игрушки
         /// </summary>
         /// <returns></returns>
-        int prizeId()
+        int PrizeId()
         {
             if (prizeField.Length > 0)
             {
@@ -127,7 +127,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         /// <returns></returns>
         public Toy GetToy()
         {
-            int prizeID = prizeId();
+            int prizeID = PrizeId();
 
             if (toys.Count > 0)
             {

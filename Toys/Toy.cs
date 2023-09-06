@@ -31,7 +31,7 @@
         {
             Name = string.Format($"{GetType().Name} #{++id}");
             Quantity = new Random().Next(1, 5); 
-            toyId = ++id;
+            toyId = id;
             Frequency = new Random().Next(6, 100);
         }
         
