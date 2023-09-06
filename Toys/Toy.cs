@@ -1,8 +1,11 @@
-﻿namespace Toy_Store.Toys
+﻿using System;
+
+namespace Toy_Store.Toys
 {
     internal class Toy
     {
         static int id;
+        static Random random; 
 
         int frequency;
         public int Frequency { get { return frequency; } set { frequency = Math.Abs(value); } }
@@ -22,6 +25,7 @@
         static Toy()
         {
             id = 0;
+            random = new Random();
         }
 
         /// <summary>
@@ -30,7 +34,7 @@
         public Toy()
         {
             Name = string.Format($"{GetType().Name} #{++id}");
-            Quantity = new Random().Next(1, 5); 
+            Quantity = Toy.random.Next(1, 5); 
             toyId = id;
             Frequency = new Random().Next(6, 100);
         }

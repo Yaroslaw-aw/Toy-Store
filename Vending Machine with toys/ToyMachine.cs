@@ -6,12 +6,19 @@ namespace Toy_Store.Vending_Machine_with_toys
     {
         Dictionary<int, Toy> toys;
 
+        static Random random;
+
         int size; // Количество элементов в словаре с игрушками
         public int Size { get { return size; } }
 
         int[] prizeField;
 
         int totalPercentages;
+
+        static ToyMachine()
+        {
+            random = new Random();
+        }
 
         public ToyMachine()
         {
@@ -115,7 +122,7 @@ namespace Toy_Store.Vending_Machine_with_toys
         {
             if (prizeField.Length > 0)
             {
-                int random = new Random().Next(prizeField.Length);
+                int random = ToyMachine.random.Next(prizeField.Length);
                 return this.prizeField[random];
             }
             return 0;
