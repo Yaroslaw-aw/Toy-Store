@@ -26,20 +26,11 @@ namespace Toy_Store
 
             childCasino.The_Show_Must_Go_On();
 
-            ChildCasino childCasino1 = new ChildCasino();
+            //ChildCasino childCasino1 = new ChildCasino();
 
-            childCasino1.The_Show_Must_Go_On();
+            //childCasino1.The_Show_Must_Go_On();
 
-            //try
-            //{
-            //    Action m = null;
-            //    m = () => { Console.WriteLine("!!!!!!!!!!!!"); m.Invoke(); };
-            //    m();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.ToString());
-            //}
+            
         }
     }
 }
