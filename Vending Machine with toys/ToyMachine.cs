@@ -123,7 +123,7 @@ namespace Toy_Store.Vending_Machine_with_toys
             if (prizeField.Length > 0)
             {
                 int random = ToyMachine.random.Next(prizeField.Length);
-                return this.prizeField[random];
+                return prizeField[random];
             }
             return 0;
         }
