@@ -36,7 +36,7 @@ namespace Toy_Store.Toys
             Name = string.Format($"{GetType().Name} #{++id}");
             Quantity = Toy.random.Next(1, 5); 
             toyId = id;
-            Frequency = new Random().Next(6, 100);
+            Frequency = Toy.random.Next(6, 100);
         }
         
         public Toy(string name, int quantity, int frequency) 
