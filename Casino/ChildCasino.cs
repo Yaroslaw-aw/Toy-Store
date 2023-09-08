@@ -204,11 +204,12 @@ namespace Toy_Store.Casino
         /// </summary>
         /// <returns></returns>
         Toy MakeNewToy()
-        {
-            Toy toy = new Toy();
-            toy.Name = Input("Введите название игрушки");
-            toy.Quantity = InputIntValue("Введите количество игрушек");
-            toy.Frequency = InputIntValue("Введите \"вес\" игрушек, от него будет зависеть шанс выпадения");
+        {            
+            string Name = Input("Введите название игрушки");
+            int Quantity = InputIntValue("Введите количество игрушек");
+            int Frequency = InputIntValue("Введите \"вес\" игрушек, от него будет зависеть шанс выпадения");
+
+            Toy toy = new Toy(Name, Quantity, Frequency);
 
             return toy;
         }
