@@ -7,20 +7,20 @@ namespace Toy_Store.Casino
 {
     internal class ChildCasino
     {
-        List<Toy> prizes;
+        Queue<Toy> prizes;
 
         ToyMachine toysMachine;
 
         public ChildCasino()
         {
             toysMachine = new ToyMachine();
-            this.prizes = new List<Toy>();
+            this.prizes = new Queue<Toy>();
         }
 
         public ChildCasino(ToyMachine toys)
         {
             this.toysMachine = toys;
-            this.prizes = new List<Toy>();
+            this.prizes = new Queue<Toy>();
         }
 
         public void The_Show_Must_Go_On()
@@ -55,7 +55,7 @@ namespace Toy_Store.Casino
                     {
                         if (toysMachine.Size > 0)
                         {
-                            prizes.Add(toysMachine.GetToy());
+                            prizes.Enqueue(toysMachine.GetToy());
                             Console.WriteLine("\nНажмите клавишу для продолжения");
                             Console.ReadKey();
                             break;
@@ -128,10 +128,11 @@ namespace Toy_Store.Casino
 
             if (prizes.Count > 0)
             {
-                Console.WriteLine($"Вы забрали игрушку {prizes[0].Name}! Она теперь ваша навсегда ;)");
+                Toy prize = prizes.Dequeue();
+                Console.WriteLine($"Вы забрали игрушку {prize.Name}! Она теперь ваша навсегда ;)");
                 try
                 {
-                    string text = $"{prizes[0].GetType().Name} {prizes[0].Name}\n";
+                    string text = $"{prize.GetType().Name} {prize.Name}\n";
                     using (FileStream fstream = new FileStream(path, FileMode.Append))
                     {
                         byte[] buffer = Encoding.UTF8.GetBytes(text);
@@ -143,8 +144,6 @@ namespace Toy_Store.Casino
                 {
                     Console.WriteLine("Не удалось создать файл\n" + e.Message);
                 }
-
-                prizes.Remove(prizes[0]);
             }
         }
         /// <summary>
